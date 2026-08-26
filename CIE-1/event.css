@@ -1,0 +1,103 @@
+*{
+    margin:0
+}
+body{
+    font-family: Arial,sans-serif;
+    margin:0;
+    background-color: #f4f7fb;
+    color: #333;
+}
+header{
+    background-color:#650656;
+    color: white;
+    padding:20px;
+    text-align:center;
+}
+header h1{
+    margin: 0 0 15px;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+main{
+    width: 90%;
+    margin: 20px;
+}
+h2{
+    text-align: center;
+    color: #650656;
+}
+.events {
+    text-align: center;
+}
+.card {
+    background-color: white;
+    border: solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px auto;
+    max-width: 500px;
+    line-height: 1.8;
+    box-shadow: 0 2px 5px #ccc;
+}
+
+.card h4 {
+    color:#650656;
+    font-size: 20px;
+}
+
+button {
+    background-color:#650656;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #142940;
+}
+.registration{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+table{
+    margin: auto;
+}
+
+td{
+    padding: 8px;
+}
+
+.faq{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.faq p{
+    line-height: 1.6;
+}
+
+.contact{
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.footer{
+    background-color:#650656;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
