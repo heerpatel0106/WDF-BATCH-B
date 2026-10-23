@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/events.css">
+
+    <title>Events - CampusHub</title>
+</head>
+
+<body>
+
+    <main>
+         
+        <section class="events-header">
+
+            <h1>Upcoming Events</h1>
+
+            <p>
+                Participate in workshops, competitions, cultural programs,
+                and technical events organized by various clubs.
+            </p>
+
+            <a href="student-dashboard.html" class="back-home">Dashboard</a> |
+            <a href="clubs.html" class="back-home">Clubs</a> |
+            <a href="community.html" class="back-home">Communities</a>
+            
+        </section>
+
+
+        <section class="events-container">
+
+            <article class="event-card">
+
+                <h2>Hackathon 2026</h2>
+
+                <p>Date: 20 August 2026</p>
+
+                <p>Organised By: Code Club</p>
+              
+                <button class="event-btn"
+                    onclick="registerEvent('Hackathon 2026', this)">
+                    Register
+                </button>
+
+            </article>
+            
+            <article class="event-card">
+
+                <h2>Photography Workshop</h2>
+
+                <p>Date: 27 July 2026</p>
+
+                <p>Organised By: Photography Club</p>
+
+                <button class="event-btn"
+                    onclick="registerEvent('Photography Workshop', this)">
+                    Register
+                </button>
+
+            </article>
+
+
+            <article class="event-card">
+
+                <h2>Freshers Orientation</h2>
+
+                <p>Date: 5 September 2026</p>
+
+                <p>Organised By: Student Council</p>
+
+                <button class="event-btn"
+                    onclick="registerEvent('Freshers Orientation', this)">
+                    Register
+                </button>
+
+            </article>
+
+        </section>
+
+    </main>
+
+    <script src="../js/events.js"></script>
+
+</body>
+
+</html>

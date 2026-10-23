@@ -1,0 +1,308 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7faff;
+    color: #173f73;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    padding: 28px 45px;
+}
+
+
+/* =========================
+   COMMUNITY HEADER
+========================= */
+
+.community-header {
+    width: 100%;
+    background: linear-gradient(135deg, #0d5ed7, #2f86e8);
+    color: white;
+
+    border-radius: 13px;
+
+    padding: 23px 30px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 3px 10px rgba(30, 90, 160, 0.12);
+}
+
+.community-header h1 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.community-header p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #eef6ff;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.back-home {
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-right: 20px;
+
+    transition: 0.2s ease;
+}
+
+.back-home:hover {
+    color: #dcecff;
+}
+
+
+/* =========================
+   COMMUNITY GRID
+========================= */
+
+.community-container {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 17px;
+}
+
+
+/* =========================
+   COMMUNITY CARD
+========================= */
+
+.community-card {
+    background-color: white;
+
+    border: 1px solid #dce8f5;
+
+    border-radius: 11px;
+
+    padding: 21px;
+
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 2px 8px rgba(40, 90, 140, 0.05);
+
+    transition: 0.2s ease;
+}
+
+.community-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 14px rgba(40, 90, 140, 0.10);
+
+    border-color: #bcd5f2;
+}
+
+
+/* =========================
+   COMMUNITY TITLE
+========================= */
+
+.community-card h2 {
+    font-size: 20px;
+
+    color: #173f73;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   COMMUNITY DESCRIPTION
+========================= */
+
+.community-card p {
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    color: #687d98;
+
+    margin-bottom: 15px;
+
+    flex-grow: 1;
+}
+
+
+/* =========================
+   JOIN BUTTON
+========================= */
+
+.join-btn {
+    width: fit-content;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background-color: #1266d6;
+
+    color: white;
+
+    padding: 9px 16px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.join-btn:hover {
+    background-color: #0d54b5;
+}
+
+.join-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   LARGE LAPTOP
+========================= */
+
+@media (min-width: 1400px) {
+
+    main {
+        padding: 30px 50px;
+    }
+
+    .community-header {
+        padding: 25px 32px;
+        margin-bottom: 22px;
+    }
+
+    .community-header h1 {
+        font-size: 29px;
+    }
+
+    .community-header p {
+        font-size: 15px;
+    }
+
+    .community-container {
+        gap: 19px;
+    }
+
+    .community-card {
+        height: 225px;
+        padding: 22px;
+    }
+
+    .community-card h2 {
+        font-size: 21px;
+    }
+
+    .community-card p {
+        font-size: 15px;
+    }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    main {
+        height: auto;
+        padding: 25px;
+    }
+
+    .community-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    main {
+        height: auto;
+        padding: 18px 15px 30px;
+    }
+
+    .community-header {
+        padding: 21px;
+    }
+
+    .community-header h1 {
+        font-size: 24px;
+    }
+
+    .community-header p {
+        font-size: 13px;
+    }
+
+    .community-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .community-card {
+        height: 190px;
+        padding: 20px;
+    }
+
+    .community-card h2 {
+        font-size: 19px;
+    }
+
+    .community-card p {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/eventregister.css">
+    <title>Register for Event - CampusHub</title>
+</head>
+
+<body>
+    <header>
+         <h1>CampusHub</h1>
+    </header>
+    <nav>
+        <a href="clubs.html">Clubs</a> |
+        <a href="events.html">Events</a> |
+        <a href="community.html">Community</a> |
+        <a href="announcements.html">Announcements</a> |
+        <a href="index.html">Home</a>
+    </nav>
+    <main>
+        <section>
+            <h3>Register for Event</h3>
+            <form action="register-event-process.php" method="POST">
+                <table>
+                    <tr>
+                        <td><label for="name">Full Name:</label></td>
+                        <td><input type="text" id="name" name="name" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email" required></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="department">Department:</label></td>
+                        <td><input type="text" id="department" name="department" required></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" value="Register">
+                            <input type="reset" value="Reset">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+
+        <p>
+            <a href="events.html">Back To Events</a>
+        </p>
+    </main>
+<script src="../js/events.js"></script>
+</body>
+</html>

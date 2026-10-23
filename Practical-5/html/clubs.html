@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/clubs.css">
+
+    <title>Clubs - CampusHub</title>
+</head>
+
+<body>
+
+    <main>
+
+        <section class="clubs-header">
+
+            <h1>Explore Clubs</h1>
+
+            <p>
+                Discover clubs based on your interests and become a part of the campus community.
+            </p>
+
+            <a href="student-dashboard.html" class="back-home">Dashboard</a> |
+            <a href="events.html" class="back-home">Events</a> |
+            <a href="community.html" class="back-home">Communities</a>
+
+        </section>
+
+
+        <section class="club-controls">
+
+    <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search clubs..."
+    >
+
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="Technical">Technical</option>
+        <option value="Creative">Creative</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Sports">Sports</option>
+        <option value="Literary">Literary</option>
+    </select>
+
+</section>
+
+
+<section class="clubs-container" id="clubsContainer">
+    <!-- Clubs will be loaded here using JavaScript -->
+</section>
+
+    </main>
+    
+    <script src="../js/clubs.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+/* General Page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f8ff;
+    color: #1d3557;
+}
+
+
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 20px 5%;
+    border-bottom: 1px solid #dbe8f7;
+}
+
+header h1 {
+    margin: 0;
+    color: #123d7a;
+    font-size: 28px;
+}
+
+
+/* Navigation */
+nav {
+    background-color: #ffffff;
+    padding: 15px 5%;
+    border-bottom: 1px solid #dbe8f7;
+}
+
+nav a {
+    color: #1769e0;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 0 6px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Main */
+main {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+
+/* Registration Card */
+main section {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #dbe8f7;
+    box-shadow: 0 3px 10px rgba(30, 80, 140, 0.08);
+}
+
+
+/* Heading */
+main section h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #123d7a;
+    font-size: 24px;
+    text-align: center;
+}
+
+
+/* Form */
+form {
+    width: 100%;
+}
+
+
+/* Table */
+table {
+    width: 100%;
+    border-spacing: 0 15px;
+}
+
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1d3557;
+}
+
+
+/* Input Fields */
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px;
+    border: 1px solid #cbd9eb;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+
+/* Input Focus */
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: #1769e0;
+}
+
+
+/* Register and Reset Buttons */
+input[type="submit"],
+input[type="reset"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+/* Register */
+input[type="submit"] {
+    background-color: #1769e0;
+    color: white;
+}
+
+
+/* Reset */
+input[type="reset"] {
+    background-color: #e8f0fa;
+    color: #123d7a;
+}
+
+
+/* Button Hover */
+input[type="submit"]:hover {
+    background-color: #0f55bd;
+}
+
+input[type="reset"]:hover {
+    background-color: #d9e6f5;
+}
+
+
+/* Back to Events */
+main > p {
+    text-align: center;
+    margin-top: 25px;
+}
+
+main > p a {
+    color: #1769e0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+main > p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px 25px;
+    }
+
+    nav {
+        padding: 12px 20px;
+        line-height: 2;
+    }
+
+    main {
+        width: 90%;
+        margin: 25px auto;
+    }
+
+    main section {
+        padding: 20px;
+    }
+
+    table,
+    tbody,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    td {
+        margin-bottom: 5px;
+    }
+
+    td[colspan="2"] {
+        text-align: center;
+        margin-top: 10px;
+    }
+}
