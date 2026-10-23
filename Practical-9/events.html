@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CampusHub - Events</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            min-height: 100vh;
+            position: relative;
+            color: #333;
+        }
+
+        /* Background image with blur matching your theme */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('images/clubs-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(8px);
+            transform: scale(1.05);
+            z-index: -1;
+        }
+
+        /* Glassmorphism Header Box */
+        .header-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-box h1 { margin-top: 0; color: #1e293b; font-size: 32px;font-weight: 900 }
+        .header-box p { color: #64748b; }
+        .nav-links a { color: #007bff; text-decoration: none; margin: 0 10px; font-weight: bold; }
+        .nav-links a:hover { text-decoration: underline; }
+
+        /* Controls Bar */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        input, select {
+            padding: 10px 15px;
+            font-size: 15px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            outline: none;
+            background: white;
+        }
+
+        /* Grid Layout for Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Individual Card */
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card h3 { margin-top: 0; color: #1e293b; font-size: 22px; }
+        .card p { color: #475569; font-size: 14px; line-height: 1.5; margin: 8px 0; }
+        .badge { display: inline-block; background: #eff6ff; color: #1d4ed8; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-bottom: 10px; }
+
+        .pagination {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .pagination button {
+            padding: 8px 14px;
+            margin: 0 4px;
+            border-radius: 6px;
+            border: none;
+            background: white;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-box">
+        <h1>Explore Campus Events</h1>
+        <p>Stay updated with workshops, hackathons, and cultural gatherings across campus.</p>
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a> | 
+            <a href="clubs.html">Clubs</a> | 
+            <a href="community.html">Communities</a>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search events..." onkeyup="filterAndRender()">
+        <select id="organizerFilter" onchange="filterAndRender()">
+            <option value="">All Organizers</option>
+            <option value="Code Club">Code Club</option>
+            <option value="Photography Club">Photography Club</option>
+            <option value="Student Council">Student Council</option>
+            <option value="Music Club">Music Club</option>
+        </select>
+        <select id="sortSelect" onchange="filterAndRender()">
+            <option value="title">Sort by Title</option>
+            <option value="date">Sort by Date</option>
+        </select>
+    </div>
+
+    <div class="events-grid" id="eventList"></div>
+    <div class="pagination" id="paginationControls"></div>
+
+   <script>
+    // Fallback data so cards render instantly even if fetch is blocked by browser security
+    let allEvents = [
+        {
+            "title": "Hackathon 2026",
+            "date": "20 August 2026",
+            "time": "9:00 AM - 9:00 AM",
+            "venue": "DEPSTAR Auditorium",
+            "organizer": "Code Club",
+            "description": "A 24-hour coding competition where students collaborate, innovate, and solve real-world challenges."
+        },
+        {
+            "title": "Photography Workshop",
+            "date": "28 August 2026",
+            "time": "4:00 PM - 6:00 PM",
+            "venue": "CHARUSAT Campus",
+            "organizer": "Photography Club",
+            "description": "A creative photography walk and workshop where students explore the campus and improve their skills."
+        },
+        {
+            "title": "Freshers Orientation",
+            "date": "5 September 2026",
+            "time": "10:00 AM - 1:00 PM",
+            "venue": "University Main Auditorium",
+            "organizer": "Student Council",
+            "description": "The orientation program for first-year students to welcome them to campus life."
+        },
+        {
+            "title": "Campus Music Night",
+            "date": "15 September 2026",
+            "time": "6:00 PM - 9:00 PM",
+            "venue": "CHARUSAT Amphitheatre",
+            "organizer": "Music Club",
+            "description": "An exciting musical evening where students showcase their talents through singing and live performances."
+        }
+    ];
+
+    let currentPage = 1;
+    const itemsPerPage = 3;
+
+    // Try fetching external JSON, but fallback to local array if it fails
+    fetch('data/events.json')
+        .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.json();
+        })
+        .then(data => {
+            if (data && data.length > 0) {
+                allEvents = data;
+            }
+            filterAndRender();
+        })
+        .catch(error => {
+            console.warn('Using fallback event data due to fetch restriction:', error);
+            filterAndRender(); // Renders using the fallback array above
+        });
+
+    function filterAndRender() {
+        const search = document.getElementById('searchInput').value.toLowerCase();
+        const organizer = document.getElementById('organizerFilter').value;
+        const sortBy = document.getElementById('sortSelect').value;
+
+        // 1. Search & Filter
+        let filtered = allEvents.filter(item => {
+            const matchesSearch = item.title.toLowerCase().includes(search) || 
+                                  item.description.toLowerCase().includes(search) || 
+                                  item.venue.toLowerCase().includes(search);
+            const matchesOrganizer = organizer === "" || item.organizer === organizer;
+            return matchesSearch && matchesOrganizer;
+        });
+
+        // 2. Sorting
+        filtered.sort((a, b) => {
+            if (sortBy === 'title') return a.title.localeCompare(b.title);
+            if (sortBy === 'date') return new Date(a.date) - new Date(b.date);
+        });
+
+        // 3. Pagination
+        const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        
+        const start = (currentPage - 1) * itemsPerPage;
+        const paginatedData = filtered.slice(start, start + itemsPerPage);
+
+        // Render Event Cards into Grid
+        const container = document.getElementById('eventList');
+        container.innerHTML = paginatedData.map(e => `
+            <div class="card" style="background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span class="badge" style="display: inline-block; background: #eff6ff; color: #1d4ed8; padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: bold; margin-bottom: 10px;">${e.organizer}</span>
+                    <h3 style="margin-top: 0; color: #1e293b; font-size: 22px;">${e.title}</h3>
+                    <p style="color: #475569; font-size: 14px; margin: 6px 0;"><strong>Venue:</strong> ${e.venue}</p>
+                    <p style="color: #475569; font-size: 14px; margin: 6px 0;"><strong>Date:</strong> ${e.date} (${e.time})</p>
+                    <p style="color: #475569; font-size: 14px; line-height: 1.5; margin: 10px 0;">${e.description}</p>
+                </div>
+            </div>
+        `).join('') || '<p style="color:white; grid-column: 1/-1; text-align:center;">No events found matching your criteria.</p>';
+
+        // Render Pagination Buttons
+        const pagContainer = document.getElementById('paginationControls');
+        let pagHTML = '';
+        for (let i = 1; i <= totalPages; i++) {
+            pagHTML += `<button onclick="changePage(${i})" ${i === currentPage ? 'style="background:#007bff;color:white; padding: 8px 14px; margin: 0 4px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold;"' : 'style="background:white; padding: 8px 14px; margin: 0 4px; border-radius: 6px; border: none; cursor: pointer; font-weight: bold;"'}>${i}</button> `;
+        }
+        pagContainer.innerHTML = pagHTML;
+    }
+
+    function changePage(page) {
+        currentPage = page;
+        filterAndRender();
+    }
+</script>
+</body>
+</html>
