@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Hackathon 2026",
+        "date": "20 August 2026",
+        "time": "9:00 AM - 9:00 AM",
+        "venue": "DEPSTAR Auditorium",
+        "organizer": "Code Club",
+        "description": "A 24-hour coding competition where students collaborate, innovate, and solve real-world challenges."
+    },
+    {
+        "title": "Photography Workshop",
+        "date": "28 August 2026",
+        "time": "4:00 PM - 6:00 PM",
+        "venue": "CHARUSAT Campus",
+        "organizer": "Photography Club",
+        "description": "A creative photography walk and workshop where students explore the campus and improve their skills."
+    },
+    {
+        "title": "Freshers Orientation",
+        "date": "5 September 2026",
+        "time": "10:00 AM - 1:00 PM",
+        "venue": "University Main Auditorium",
+        "organizer": "Student Council",
+        "description": "The orientation program for first-year students to welcome them to campus life."
+    },
+    {
+        "title": "Campus Music Night",
+        "date": "15 September 2026",
+        "time": "6:00 PM - 9:00 PM",
+        "venue": "CHARUSAT Amphitheatre",
+        "organizer": "Music Club",
+        "description": "An exciting musical evening where students showcase their talents through singing and live performances."
+    }
+]
