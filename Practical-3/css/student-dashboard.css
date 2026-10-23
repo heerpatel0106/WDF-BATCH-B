@@ -1,0 +1,757 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7faff;
+    color: #173f73;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   MAIN DASHBOARD
+========================================= */
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 265px;
+    height: 100vh;
+
+    flex-shrink: 0;
+
+    background: #17447f;
+    color: white;
+
+    padding: 34px 21px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+
+    margin: 0 14px 40px;
+
+    color: white;
+}
+
+
+/* =========================================
+   SIDEBAR NAVIGATION
+========================================= */
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.sidebar nav a,
+.explore a,
+.sidebar-bottom a {
+    display: block;
+
+    text-decoration: none;
+
+    color: #f1f6ff;
+
+    font-size: 16px;
+
+    padding: 14px;
+
+    border-radius: 7px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar nav a:hover,
+.explore a:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ACTIVE LINK */
+
+.sidebar nav a.active {
+    background: #1769df;
+    color: white;
+}
+
+
+/* =========================================
+   EXPLORE
+========================================= */
+
+.explore {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.explore p {
+    margin: 0 14px 10px;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
+    color: #8eb8ed;
+}
+
+.explore a {
+    padding: 12px 14px;
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-bottom a {
+    padding: 12px 14px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.main-content {
+    flex: 1;
+
+    height: 100vh;
+
+    min-width: 0;
+
+    padding: 35px 45px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   WELCOME SECTION
+========================================= */
+
+.welcome {
+    width: 100%;
+
+    flex-shrink: 0;
+
+    background: white;
+
+    border: 1px solid #d8e7f8;
+
+    border-radius: 14px;
+
+    padding: 32px 36px;
+
+    box-shadow: 0 3px 12px rgba(40, 90, 140, 0.06);
+
+    margin-bottom: 28px;
+}
+
+.small-heading {
+    color: #1266d6;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    margin-bottom: 14px;
+}
+
+.welcome h2 {
+    color: #173f73;
+
+    font-size: 31px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    margin-bottom: 13px;
+}
+
+.welcome h2 em {
+    color: #1266d6;
+    font-style: normal;
+}
+
+.welcome > div > p:last-child {
+    color: #657d99;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   STAT CARDS
+========================================= */
+
+.stats {
+    width: 100%;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    min-width: 0;
+
+    height: 160px;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(190, 215, 240, 0.8);
+
+    box-shadow: 0 3px 10px rgba(40, 90, 140, 0.05);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================
+   DIFFERENT TRANSPARENT COLORS
+========================================= */
+
+/* My Clubs */
+
+.stat-card:nth-child(1) {
+    background: rgba(52, 132, 232, 0.10);
+    border-color: rgba(52, 132, 232, 0.20);
+}
+
+
+/* My Events */
+
+.stat-card:nth-child(2) {
+    background: rgba(126, 92, 213, 0.09);
+    border-color: rgba(126, 92, 213, 0.18);
+}
+
+
+/* Communities */
+
+.stat-card:nth-child(3) {
+    background: rgba(55, 170, 119, 0.09);
+    border-color: rgba(55, 170, 119, 0.18);
+}
+
+
+/* Announcements */
+
+.stat-card:nth-child(4) {
+    background: rgba(238, 174, 61, 0.10);
+    border-color: rgba(238, 174, 61, 0.20);
+}
+
+
+/* =========================================
+   STAT TEXT
+========================================= */
+
+.stat-card h3 {
+    color: #365979;
+
+    font-size: 16px;
+
+    font-weight: 500;
+}
+
+.stat-card strong {
+    color: #12477f;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: #7790aa;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DASHBOARD LOWER GRID
+========================================= */
+
+.dashboard-grid {
+    width: 100%;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 22px;
+}
+
+
+/* =========================================
+   DASHBOARD CARDS
+========================================= */
+
+.dashboard-card {
+    min-width: 0;
+    min-height: 0;
+
+    background: white;
+
+    border: 1px solid #d8e7f8;
+
+    border-radius: 13px;
+
+    padding: 30px;
+
+    box-shadow: 0 3px 10px rgba(40, 90, 140, 0.05);
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CARD HEADINGS
+========================================= */
+
+.card-heading h2 {
+    color: #173f73;
+
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.card-heading p {
+    color: #7188a2;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MY CLUBS LIST
+========================================= */
+
+.item-list {
+    margin-top: 24px;
+}
+
+.item {
+    min-height: 72px;
+
+    padding: 12px 0;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid #e2ebf5;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item h3 {
+    color: #173f73;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.item p {
+    color: #7188a2;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   EVENTS LIST
+========================================= */
+
+.event-list {
+    margin-top: 18px;
+}
+
+.event-item {
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #e2ebf5;
+}
+
+.event-item:last-child {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   DATE BOX
+========================================= */
+
+.date {
+    width: 57px;
+    height: 57px;
+
+    flex-shrink: 0;
+
+    border-radius: 9px;
+
+    background: #e9f3ff;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.date strong {
+    color: #1266d6;
+
+    font-size: 21px;
+
+    line-height: 1;
+
+    margin-bottom: 4px;
+}
+
+.date span {
+    color: #6e88a4;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================
+   EVENT TEXT
+========================================= */
+
+.event-item h3 {
+    color: #173f73;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.event-item p {
+    color: #7188a2;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    flex-shrink: 0;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+footer p {
+    color: #91a3b6;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   LARGE LAPTOP
+========================================= */
+
+@media (min-width: 1400px) {
+
+    .sidebar {
+        width: 290px;
+    }
+
+    .main-content {
+        padding: 35px 45px 18px;
+    }
+
+    .welcome {
+        padding: 32px 38px;
+    }
+
+    .welcome h2 {
+        font-size: 32px;
+    }
+
+    .stat-card {
+        height: 160px;
+        padding: 25px;
+    }
+
+    .dashboard-card {
+        padding: 30px;
+    }
+}
+
+
+/* =========================================
+   SMALLER LAPTOP
+========================================= */
+
+@media (max-height: 800px) {
+
+    .main-content {
+        padding-top: 22px;
+        padding-bottom: 12px;
+    }
+
+    .welcome {
+        padding: 22px 30px;
+        margin-bottom: 18px;
+    }
+
+    .welcome h2 {
+        font-size: 27px;
+        margin-bottom: 8px;
+    }
+
+    .small-heading {
+        margin-bottom: 8px;
+    }
+
+    .welcome > div > p:last-child {
+        font-size: 14px;
+    }
+
+    .stats {
+        margin-bottom: 18px;
+        gap: 17px;
+    }
+
+    .stat-card {
+        height: 125px;
+        padding: 19px;
+    }
+
+    .stat-card strong {
+        font-size: 28px;
+    }
+
+    .dashboard-card {
+        padding: 23px;
+    }
+
+    .card-heading h2 {
+        font-size: 21px;
+    }
+
+    .item-list {
+        margin-top: 13px;
+    }
+
+    .item {
+        min-height: 57px;
+        padding: 8px 0;
+    }
+
+    .event-list {
+        margin-top: 10px;
+    }
+
+    .event-item {
+        min-height: 58px;
+        padding: 6px 0;
+    }
+
+    .date {
+        width: 52px;
+        height: 52px;
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+    .sidebar {
+        width: 220px;
+        padding: 28px 16px;
+    }
+
+    .logo {
+        font-size: 22px;
+        margin-left: 8px;
+    }
+
+    .sidebar nav a,
+    .explore a,
+    .sidebar-bottom a {
+        font-size: 14px;
+        padding: 11px;
+    }
+
+    .main-content {
+        padding: 25px;
+    }
+
+    .stats {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px;
+    }
+
+    .dashboard-card {
+        padding: 22px;
+    }
+}
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .dashboard {
+        height: auto;
+        min-height: 100vh;
+
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+
+        padding: 15px 20px;
+    }
+
+    .logo {
+        margin: 0 0 12px;
+    }
+
+    .sidebar nav,
+    .explore {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .explore {
+        margin-top: 10px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 10px;
+    }
+
+    .main-content {
+        height: auto;
+        overflow: visible;
+
+        padding: 20px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
