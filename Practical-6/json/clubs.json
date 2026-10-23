@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Code Club",
+        "description": "Organizes coding competitions, hackathons, workshops and technical sessions.",
+        "category": "Technical"
+    },
+    {
+        "name": "Photography Club",
+        "description": "Conducts photography walks, editing workshops and exhibitions.",
+        "category": "Creative"
+    },
+    {
+        "name": "Music Club",
+        "description": "Encourages singing, instrumental performances and cultural events.",
+        "category": "Cultural"
+    },
+    {
+        "name": "Sports Club",
+        "description": "Promotes indoor and outdoor sports through tournaments and practice sessions.",
+        "category": "Sports"
+    },
+    {
+        "name": "Dance Club",
+        "description": "Organizes dance performances, workshops, competitions and cultural events.",
+        "category": "Cultural"
+    },
+    {
+        "name": "Literacy Club",
+        "description": "Conducts writing activities, poetry sessions, debates and reading events.",
+        "category": "Literary"
+    }
+]
